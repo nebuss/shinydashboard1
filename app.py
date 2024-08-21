@@ -26,9 +26,12 @@ def scatter():
     from palmerpenguins import load_penguins
     import pandas as pd
 
+
     df = load_penguins()
 
     # !pip install scikit-learn
+    import pandas as pd
+    import numpy as np
     from sklearn.linear_model import LinearRegression
 
     model = LinearRegression()
@@ -51,6 +54,18 @@ def scatter():
     model.intercept_
 
     regline_y=model.predict(x)
+    # 더미코드를 사용한 예측
+    x=pd.DataFrame({
+    'bill_length_mm': 15.0,
+    'species': pd.Categorical(['Adelie'], 
+                                categories=['Adelie', 'Chinstrap', 'Gentoo'])
+    })
+    x = pd.get_dummies( x, 
+                        columns=['species'],
+                        drop_first=True
+    )
+    y_hat=model.predict(x)
+    y_hat
 
     import numpy as np
     index_1=np.where(penguins['species'] == "Adelie")
