@@ -68,3 +68,4 @@ def scatter():
     plt.xlabel("부리길이")
     plt.ylabel("부리깊이")
   
+  # 테스트
